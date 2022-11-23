@@ -4,7 +4,8 @@ WORKDIR /workspace/app
 # COPY .mvn .mvn
 
 RUN echo "the quick brown fox"
-CMD "ls" "."
+RUN "pwd"
+RUN "ls ."
 # ARG --progress=plain --no-cache
 
 

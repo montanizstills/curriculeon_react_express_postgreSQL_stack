@@ -3,6 +3,7 @@ WORKDIR /workspace/app
 # COPY mvnw .
 # COPY .mvn .mvn
 
+RUN echo "the quick brown fox"
 CMD ["ls", "."]
 # ARG --progress=plain --no-cache
 

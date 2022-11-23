@@ -2,7 +2,11 @@ FROM openjdk:8-jdk-alpine as build
 WORKDIR /workspace/app
 # COPY mvnw .
 # COPY .mvn .mvn
-RUN ls .
+
+CMD ["ls", "."]
+# ARG --progress=plain --no-cache
+
+
 # COPY pom.xml .
 # COPY src/ src
 # RUN chmod +x ./mvnw

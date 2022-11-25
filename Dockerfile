@@ -1,16 +1,28 @@
 FROM openjdk:8-jdk-alpine as build
 WORKDIR /workspace/app
-# COPY mvnw .
-# COPY .mvn .mvn
+ARG PROGRESS="--plain"
+ARG CACHE="--no-cache"
+ARG BUILDKIT="DOCKER_BUILDKIT=0"
 
-RUN echo "the quick brown fox"
-RUN "pwd"
-RUN "ls ."
-# ARG --progress=plain --no-cache
+RUN echo "Running copy mvnw to ./"
+COPY mvnw .
+RUN echo "Finsished copy mvnw"
 
+RUN echo "Displaying volume contents"
+RUN echo */*
 
-# COPY pom.xml .
-# COPY src/ src
+RUN echo "Running copy .mvn to ./mvn/"
+COPY .mvn .mvn
+RUN echo */*
+
+RUN echo "Running copy pom.xml to ./"
+COPY pom.xml .
+RUN echo */*
+
+RUN echo "Running copy src to ./src/"
+COPY src src
+RUN echo */*
+
 # RUN chmod +x ./mvnw
 # RUN ./mvnw install -DskipTests
 # RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)

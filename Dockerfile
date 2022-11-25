@@ -1,10 +1,10 @@
 FROM openjdk:8-jdk-alpine as build
 WORKDIR /workspace/app
 
-# ARG PROGRESS="--plain"
-# ARG CACHE="--no-cache"
-# ARG BUILDKIT="DOCKER_BUILDKIT=0"
-ARG CACHE_BUST
+ARG PROGRESS="--progress=plain"
+ARG CACHE="--no-cache"
+ARG BUILDKIT="DOCKER_BUILDKIT=0"
+
 
 RUN echo "Running copy mvnw to ./"
 COPY mvnw .

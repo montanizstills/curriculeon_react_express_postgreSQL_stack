@@ -4,7 +4,7 @@ WORKDIR /workspace/app
 # ARG PROGRESS="--progress=plain"
 # ARG CACHE="--no-cache"
 # ARG BUILDKIT="DOCKER_BUILDKIT=0"
-ARG BUILDKIT_INLINE_CACHE
+ARG BUILDKIT_INLINE_CACHE=true
 
 RUN echo "Running copy mvnw to ./"
 COPY mvnw .

@@ -1,5 +1,6 @@
 FROM openjdk:8-jdk-alpine as build
 WORKDIR /workspace/app
+
 ARG PROGRESS="--plain"
 ARG CACHE="--no-cache"
 ARG BUILDKIT="DOCKER_BUILDKIT=0"
@@ -9,19 +10,31 @@ COPY mvnw .
 RUN echo "Finsished copy mvnw"
 
 RUN echo "Displaying volume contents"
-RUN echo */*
+RUN echo */* --no-cache
 
 RUN echo "Running copy .mvn to ./mvn/"
 COPY .mvn .mvn
+RUN echo "Finsished copy mvn"
+
+RUN echo "Displaying volume contents"
 RUN echo */*
+
 
 RUN echo "Running copy pom.xml to ./"
 COPY pom.xml .
+RUN echo "Finsished copy pom.xml"
+
+RUN echo "Displaying volume contents"
 RUN echo */*
+
 
 RUN echo "Running copy src to ./src/"
 COPY src src
+RUN echo "Finsished copy src"
+
+RUN echo "Displaying volume contents"
 RUN echo */*
+
 
 # RUN chmod +x ./mvnw
 # RUN ./mvnw install -DskipTests
